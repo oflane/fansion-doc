@@ -14,7 +14,7 @@
       span.underline{text-decoration: underline;}
       div.column{display: inline-block; vertical-align: top; width: 50%;}
   </style>
-  <link rel="stylesheet" href="reveal.js/css/theme/beige.css" id="theme">
+  <link rel="stylesheet" href="reveal.js/css/theme/solarized.css" id="theme">
   <!-- Printing and PDF exports -->
   <script>
     var link = document.createElement( 'link' );
@@ -32,9 +32,21 @@
     <div class="slides">
 
 
-<section id="fansion-框架介绍" class="slide level2">
-<h2>fansion 框架介绍</h2>
+<section id="fansion-前端框架介绍" class="slide level2">
+<h2>fansion 前端框架介绍</h2>
 <p><em>version 1.0.0</em></p>
+</section>
+<section class="slide level2">
+
+<h3 id="前端的问题">前端的问题</h3>
+<ul>
+<li>单入口应用分支多难于管理</li>
+<li>按需打包较困难</li>
+<li>缺少总体控制，重复代码多</li>
+<li>前端人员结构不合理</li>
+<li>开发方式不合理，成长较慢</li>
+<li>开发质量较低</li>
+</ul>
 </section>
 <section class="slide level2">
 
@@ -48,20 +60,7 @@
 </section>
 <section class="slide level2">
 
-<h3 id="fansion组成">fansion组成</h3>
-<ul>
-<li>fansion-base</li>
-<li>fansion-fac</li>
-<li>fansion-ui</li>
-<li>fansion-meta</li>
-<li>fansion-env</li>
-<li>fansion-main</li>
-<li>fansion-demo</li>
-</ul>
-</section>
-<section class="slide level2">
-
-<h3 id="fansion-base基础">fansion-base基础</h3>
+<h3 id="fansion的组成">fansion的组成</h3>
 <ul>
 <li>fansion-base</li>
 <li>fansion-fac</li>
@@ -73,50 +72,147 @@
 </section>
 <section class="slide level2">
 
-<h3 id="fansion-fac">fansion-fac</h3>
+<h3 id="fansion结构">fansion结构</h3>
+<figure>
+<img data-src="images/fansion-structure.png" alt="结构图" /><figcaption>结构图</figcaption>
+</figure>
+</section>
+<section class="slide level2">
+
+<h3 id="fansion-base-介绍">fansion-base 介绍</h3>
+<p>标签：<code>&lt;要素&gt;</code> <code>&lt;工具&gt;</code> <code>&lt;注册&gt;</code> <code>&lt;扩展&gt;</code></p>
 <ul>
-<li>fansion-base</li>
-<li>fansion-fac</li>
-<li>fansion-ui</li>
-<li>fansion-meta</li>
-<li>fansion-main</li>
-<li>fansion-env</li>
+<li>定义基础组件元素及扩展方式</li>
+<li>提供工具方法，扩展方法</li>
 </ul>
 </section>
 <section class="slide level2">
 
-<h3 id="fansion-ui">fansion-ui</h3>
+<h3 id="fansion-base-基础组件元素及扩展">fansion-base 基础组件元素及扩展</h3>
 <ul>
-<li>fansion-base</li>
-<li>fansion-fac</li>
-<li>fansion-ui</li>
-<li>fansion-meta</li>
-<li>fansion-main</li>
-<li>fansion-env</li>
+<li>模块间的扩展方式，install&amp;init</li>
+<li>页面、页面中心</li>
+<li>页面路由规则</li>
+<li>对话框、对话框中心、对话框开瓶器</li>
+<li>数据加载器</li>
 </ul>
+</section>
+<section class="slide level2">
+
+<h3 id="fansion-base-路由">fansion-base 路由</h3>
+<figure>
+<img data-src="images/fansion-router.png" alt="路由图" /><figcaption>路由图</figcaption>
+</figure>
+</section>
+<section class="slide level2">
+
+<h3 id="fansion-base-页面">fansion-base 页面</h3>
+<figure>
+<img data-src="images/fansion-page.png" alt="页面图" /><figcaption>页面图</figcaption>
+</figure>
+</section>
+<section class="slide level2">
+
+<h3 id="fansion-base-数据加载器">fansion-base 数据加载器</h3>
+<figure>
+<img data-src="images/fansion-dataloader.png" alt="数据加载器图" /><figcaption>数据加载器图</figcaption>
+</figure>
+</section>
+<section class="slide level2">
+
+<h3 id="fansion-base-工具方法扩展方法">fansion-base 工具方法，扩展方法</h3>
+<ul>
+<li>扩展了string,date方法</li>
+<li>util提供常用的工具方法</li>
+<li>rest提供对服务端的访问包装</li>
+<li>重点工具组件: state、builder、render、mod</li>
+</ul>
+</section>
+<section class="slide level2">
+
+<h3 id="fansion-fac-介绍">fansion-fac 介绍</h3>
+<p>标签：<code>&lt;引擎&gt;</code> <code>&lt;布局&gt;</code> <code>&lt;元数据&gt;</code> <code>&lt;改变控制&gt;</code></p>
+<ul>
+<li>fac 模板引擎</li>
+<li>fayout 布局组件</li>
+<li>模板中心、fac元数据中心</li>
+</ul>
+</section>
+<section class="slide level2">
+
+<h3 id="fansion-fac-引擎1">fansion-fac 引擎(1)</h3>
+<figure>
+<img data-src="images/fansion-fac.png" alt="fac原理" /><figcaption>fac原理</figcaption>
+</figure>
+</section>
+<section class="slide level2">
+
+<h3 id="fansion-fac-引擎2">fansion-fac 引擎(2)</h3>
+<figure>
+<img data-src="images/fansion-engine.png" alt="fac引擎图" /><figcaption>fac引擎图</figcaption>
+</figure>
+</section>
+<section class="slide level2">
+
+<h3 id="fansion-fac-布局">fansion-fac 布局</h3>
+<ul>
+<li>fayout通用布局组件</li>
+<li>注册自定义布局（vue组件），要求布局内容通过slot填充</li>
+</ul>
+<pre><code>&lt;fac-layout :conf=&quot;jsonConfig&quot;&gt;
+    &lt;component1 slot=&quot;a1&quot;&gt;
+    &lt;component2 slot=&quot;a2&quot;&gt;
+    &lt;component3 slot=&quot;a3&quot;&gt;
+    &lt;component4 slot=&quot;a4&quot;&gt;
+&lt;/fac-layout&gt;
+</code></pre>
+</section>
+<section class="slide level2">
+
+<h3 id="fansion-ui-介绍">fansion-ui 介绍</h3>
+<p>标签：<code>&lt;组件&gt;</code> <code>&lt;实现&gt;</code> <code>&lt;元数据&gt;</code></p>
+<ul>
+<li>对话框opener与message的实现</li>
+<li>组件实现，参照容器</li>
+<li>组件注册</li>
+<li>参照规范，参照注册，及参照容器</li>
+<li>代码生成器，处理封装（例）</li>
+</ul>
+</section>
+<section class="slide level2">
+
+<h3 id="fansion-ui-组件注册">fansion-ui 组件注册</h3>
+<figure>
+<img data-src="images/fansion-cometa.png" alt="fac组件注册" /><figcaption>fac组件注册</figcaption>
+</figure>
 </section>
 <section class="slide level2">
 
 <h3 id="fansion-meta">fansion-meta</h3>
+<p>标签：<code>&lt;元元数据&gt;</code> <code>&lt;配置&gt;</code></p>
 <ul>
-<li>fansion-base</li>
-<li>fansion-fac</li>
-<li>fansion-ui</li>
-<li>fansion-meta</li>
-<li>fansion-main</li>
-<li>fansion-env</li>
+<li>组件配置(注册)confeta-&gt;fata(fac meta)组件界面配置(使用)元数据</li>
+<li>temeta模板元数据</li>
+<li>元数据配置
+<ul>
+<li>模型配置</li>
+<li>模板配置</li>
+</ul></li>
 </ul>
+</section>
+<section class="slide level2">
+
+<h3 id="fansion-meta-1">fansion-meta</h3>
+<figure>
+<img data-src="images/fansion-meta.png" alt="fac配置" /><figcaption>fac配置</figcaption>
+</figure>
 </section>
 <section class="slide level2">
 
 <h3 id="fansion-main和fansion-env">fansion-main和fansion-env</h3>
 <ul>
-<li>fansion-base</li>
-<li>fansion-fac</li>
-<li>fansion-ui</li>
-<li>fansion-meta</li>
-<li>fansion-main</li>
-<li>fansion-env</li>
+<li>fansion-main工程</li>
+<li>fansion-env应用开发环境</li>
 </ul>
 </section>
 <section class="slide level2">
@@ -124,10 +220,21 @@
 <h3 id="fansion存在问题">fansion存在问题</h3>
 <ul>
 <li>模块中chunk文件问题</li>
+<li>未完成校验配置化</li>
 <li>语法不规范</li>
 <li>加入运行时模板</li>
+<li>加入脚手架</li>
+<li>无移动组件</li>
 <li>尚未优化</li>
+<li>平台化配置</li>
 </ul>
+</section>
+<section class="slide level2">
+
+<h3 id="理想开发分配">理想开发分配</h3>
+<figure>
+<img data-src="images/worker.png" alt="工作时间" /><figcaption>工作时间</figcaption>
+</figure>
 </section>
     </div>
   </div>

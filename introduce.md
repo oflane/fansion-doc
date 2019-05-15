@@ -1,19 +1,16 @@
 ## fansion 前端框架介绍
  *version 1.0.0*
- 
- - 一种配置化开发的前端框架实现
- - 实现一种新的的界面控制方式
- - 基本思路：view也是model
 
 ---
 
 ### 前端的问题
 
 - 单入口应用分支多难于管理
-- 各模块代码混在一起
+- 按需打包较困难
 - 缺少总体控制，重复代码多
 - 前端人员结构不合理
-- 忙于重复性工作，成长较慢
+- 开发方式不合理，成长较慢
+- 开发质量较低
 
 ---
 
@@ -26,7 +23,7 @@
 
 ---
 
-### fansion的项目
+### fansion的组成
 
 - fansion-base
 - fansion-fac
@@ -45,7 +42,7 @@
 
 ### fansion-base 介绍
 
- 标签：`<要素>` `<工具>` `<扩展>`
+ 标签：`<要素>` `<工具>` `<注册>` `<扩展>`
 
  - 定义基础组件元素及扩展方式
  - 提供工具方法，扩展方法
@@ -116,13 +113,23 @@
 - fayout通用布局组件
 - 注册自定义布局（vue组件），要求布局内容通过slot填充
 
+```
+<fac-layout :conf="jsonConfig">
+    <component1 slot="a1">
+    <component2 slot="a2">
+    <component3 slot="a3">
+    <component4 slot="a4">
+</fac-layout>
+
+```
+
 ---
 
 ### fansion-ui 介绍
 
  标签：`<组件>` `<实现>` `<元数据>`
  
- * 对话框开瓶器与message的实现
+ * 对话框opener与message的实现
  * 组件实现，参照容器
  * 组件注册
  * 参照规范，参照注册，及参照容器
@@ -140,7 +147,7 @@
 
  标签：`<元元数据>` `<配置>`
  
- * 组件配置元数据confeta->fata(fac meta)组件界面配置元数据
+ * 组件配置(注册)confeta->fata(fac meta)组件界面配置(使用)元数据
  * temeta模板元数据
  * 元数据配置
     * 模型配置
@@ -150,19 +157,13 @@
 
 ### fansion-meta
 
- 标签：`<元元数据>` `<配置>`
- 
- * 组件配置元数据confeta->fata(fac meta)组件界面配置元数据
- * temeta模板元数据
- * 元数据配置
-    * 模型配置
-    * 模板配置
+![fac配置](images/fansion-meta.png)
 
 ---
 
 ### fansion-main和fansion-env
 
-- fansion-main应用入口
+- fansion-main工程
 - fansion-env应用开发环境
 
 ---
@@ -176,3 +177,10 @@
 - 加入脚手架
 - 无移动组件
 - 尚未优化
+- 平台化配置
+
+---
+
+### 理想开发分配
+
+![工作时间](images/worker.png)
